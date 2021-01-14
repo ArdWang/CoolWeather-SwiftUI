@@ -18,7 +18,7 @@ struct GankView: View {
     let baseUrl = "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10"
     
     //获取GankList
-    @State var gankList = [Gank]()
+    @State var items = [Datum]()
     
     
     init(){
@@ -26,7 +26,7 @@ struct GankView: View {
         getHeader()
         
         // 网络数据请求
-        getNetwork()
+        //getNetwork()
         
     }
     
@@ -49,12 +49,25 @@ struct GankView: View {
         
         ApiUtils.shared.netWork(url: baseUrl, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: { result in
             
-            if let model = GankModel.deserialize(from: result){
-                if model.data.count > 0 {
-                    self.gankList = model.data
-                }
+//            if let model = GankModel.deserialize(from: result){
+//                if model.data.count > 0 {
+//                    self.gankList = model.data
+//                }
+//            }
+
+            let data = result.data(using: .utf8)
+            
+            guard let gank = try? JSONDecoder().decode(Gankk.self, from: data!) else {
+                return
             }
             
+            let items: [Datum] = gank.data
+            
+            print("items's count: \(items.count)")
+            
+            DispatchQueue.main.async {
+                self.items = items
+            }
         }, error: { error in
             print("error is \(error)")
         })
@@ -66,16 +79,17 @@ struct GankView: View {
             ScrollView{
                 LazyVGrid(columns: columns, spacing:20)
                 {
-                    ForEach(0..<self.gankList.count){ i in
-                        
-                        KFImage(URL(string: self.gankList[i].images[0])!).resizable()
-                            .aspectRatio(contentMode: .fill)
-                        
-                        //Image("\(self.gankList[i].images[0])").resizable().aspectRatio(contentMode: .fill)                    }
+                    ForEach(items){ item in
+                        if let firstImage = item.images.first {
+                            KFImage(URL(string: firstImage))
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        }
                     }
                     .navigationBarTitle("干货", displayMode: .inline)
                 }
-            }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear(perform: getNetwork)
         }
     }
     

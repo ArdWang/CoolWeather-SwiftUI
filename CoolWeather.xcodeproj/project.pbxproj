@@ -22,6 +22,7 @@
 		BCCEA7D225B00CE100EFDC5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */; };
 		BCCEA7D525B00CE100EFDC5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D425B00CE100EFDC5D /* Preview Assets.xcassets */; };
 		BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */; };
+		BE4F480725B06302001C1DCD /* Gankk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F480625B06302001C1DCD /* Gankk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		BCCEA7D425B00CE100EFDC5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BCCEA7D625B00CE100EFDC5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtils.swift; sourceTree = "<group>"; };
+		BE4F480625B06302001C1DCD /* Gankk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gankk.swift; sourceTree = "<group>"; };
 		DCC687BC4B0BF0A0784379F9 /* Pods-CoolWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolWeather.debug.xcconfig"; path = "Target Support Files/Pods-CoolWeather/Pods-CoolWeather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BC842B2825B02E7F00E3F2D1 /* GankModel.swift */,
+				BE4F480625B06302001C1DCD /* Gankk.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				BC842B1825B014F000E3F2D1 /* CView.swift in Sources */,
 				BC842B1E25B01A9A00E3F2D1 /* NavigationBar.swift in Sources */,
 				BC842B1B25B017AE00E3F2D1 /* GankView.swift in Sources */,
+				BE4F480725B06302001C1DCD /* Gankk.swift in Sources */,
 				BC842B1225B014D300E3F2D1 /* AView.swift in Sources */,
 				BC842B0F25B0123F00E3F2D1 /* TabarView.swift in Sources */,
 				BC842B2125B0234F00E3F2D1 /* ComExtension.swift in Sources */,
