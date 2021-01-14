@@ -26,7 +26,7 @@ struct GankView: View {
         getHeader()
         
         // 网络数据请求
-        getNetwork()
+        //getNetwork()
         
     }
     
@@ -51,9 +51,19 @@ struct GankView: View {
             
             if let model = GankModel.deserialize(from: result){
                 if model.data.count > 0 {
-                    self.gankList = model.data
+                    DispatchQueue.main.async {
+                        self.gankList = model.data
+                    }
                 }
             }
+//            if let response = try? JSONDecoder().decode(GankMModel.self, from: result) {
+//                DispatchQueue.main.async {
+//                    self.gankList = response.data
+//                }
+//
+//            }
+            
+            
             
         }, error: { error in
             print("error is \(error)")
@@ -75,7 +85,8 @@ struct GankView: View {
                     }
                     .navigationBarTitle("干货", displayMode: .inline)
                 }
-            }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .onAppear(perform: getNetwork)
         }
     }
     

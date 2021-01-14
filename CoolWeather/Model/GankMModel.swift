@@ -1,29 +1,24 @@
 //
-//  GankModel.swift
+//  GankMModel.swift
 //  CoolWeather
 //
 //  Created by RND on 2021/1/14.
 //
 
-import UIKit
-import HandyJSON
+import SwiftUI
 
-class GankModel: HandyJSON {
-    
-    var data:[Gank] = []
-    
-    required init() {}
+struct GankMModel: Codable {
+    var data:[Ganks]
 }
 
-
-class Gank: HandyJSON{
-
+struct Ganks: Codable,Identifiable{
+    var id: Int
     var _id:String?
     var author:String?
     var category:String?
     var createdAt:String?
     var desc:String?
-    var images:[String] = []
+    var images:[String]?
     var likeCounts:String?
     var publishedAt:String?
     var stars:String?
@@ -31,6 +26,6 @@ class Gank: HandyJSON{
     var type:String?
     var url:String?
     var views:String?
-
-    required init() {}
+    
 }
+

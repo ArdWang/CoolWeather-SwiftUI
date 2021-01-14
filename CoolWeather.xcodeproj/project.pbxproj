@@ -17,6 +17,7 @@
 		BC842B2125B0234F00E3F2D1 /* ComExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B2025B0234F00E3F2D1 /* ComExtension.swift */; };
 		BC842B2525B0294500E3F2D1 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B2425B0294500E3F2D1 /* GridView.swift */; };
 		BC842B2925B02E7F00E3F2D1 /* GankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B2825B02E7F00E3F2D1 /* GankModel.swift */; };
+		BC842B3125B0417900E3F2D1 /* GankMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B3025B0417800E3F2D1 /* GankMModel.swift */; };
 		BCCEA7CE25B00CDB00EFDC5D /* CoolWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7CD25B00CDB00EFDC5D /* CoolWeatherApp.swift */; };
 		BCCEA7D025B00CDB00EFDC5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */; };
 		BCCEA7D225B00CE100EFDC5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		BC842B2025B0234F00E3F2D1 /* ComExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComExtension.swift; sourceTree = "<group>"; };
 		BC842B2425B0294500E3F2D1 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		BC842B2825B02E7F00E3F2D1 /* GankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankModel.swift; sourceTree = "<group>"; };
+		BC842B3025B0417800E3F2D1 /* GankMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankMModel.swift; sourceTree = "<group>"; };
 		BCCEA7CA25B00CDB00EFDC5D /* CoolWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCEA7CD25B00CDB00EFDC5D /* CoolWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolWeatherApp.swift; sourceTree = "<group>"; };
 		BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BC842B2825B02E7F00E3F2D1 /* GankModel.swift */,
+				BC842B3025B0417800E3F2D1 /* GankMModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				BC842B1E25B01A9A00E3F2D1 /* NavigationBar.swift in Sources */,
 				BC842B1B25B017AE00E3F2D1 /* GankView.swift in Sources */,
 				BC842B1225B014D300E3F2D1 /* AView.swift in Sources */,
+				BC842B3125B0417900E3F2D1 /* GankMModel.swift in Sources */,
 				BC842B0F25B0123F00E3F2D1 /* TabarView.swift in Sources */,
 				BC842B2125B0234F00E3F2D1 /* ComExtension.swift in Sources */,
 			);
