@@ -8,16 +8,16 @@
 import UIKit
 import HandyJSON
 
-class GankModel: HandyJSON {
+struct GankModel: HandyJSON {
     
     var data:[Gank] = []
     
-    required init() {}
+    //required init() {}
 }
 
 
-class Gank: HandyJSON{
-
+struct Gank: HandyJSON{
+    
     var _id:String?
     var author:String?
     var category:String?
@@ -32,5 +32,9 @@ class Gank: HandyJSON{
     var url:String?
     var views:String?
 
+
     required init() {}
+
+    
+    //required init() {}
 }
