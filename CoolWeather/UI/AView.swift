@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AView.swift
 //  CoolWeather
 //
 //  Created by RND on 2021/1/14.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AView: View {
     var body: some View {
-        TabarView()
+        Text("A界面")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AView()
     }
 }
