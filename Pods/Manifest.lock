@@ -1,24 +1,32 @@
 PODS:
   - Alamofire (5.4.0)
   - HandyJSON (5.0.2)
+  - Introspect (0.1.2)
   - Kingfisher (6.0.1)
+  - SwiftUIRefresh (0.0.3):
+    - Introspect (~> 0.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - HandyJSON (~> 5.0.0)
   - Kingfisher (~> 6.0)
+  - SwiftUIRefresh
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - HandyJSON
+    - Introspect
     - Kingfisher
+    - SwiftUIRefresh
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Introspect: 85a29d2c5ee4d3d15469ad0b75fd8839f3e72674
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
+  SwiftUIRefresh: ca6ae2718d25aad5dd68bbf5d2ae36ef6ade98bf
 
-PODFILE CHECKSUM: f9c456a3977d233287fb570c89089ed2779e90cb
+PODFILE CHECKSUM: 321afc2cc101592080257effdede16fcdf95caf0
 
 COCOAPODS: 1.9.1

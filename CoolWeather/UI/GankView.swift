@@ -10,22 +10,30 @@ import Alamofire
 import Kingfisher
 
 
-
 struct GankView: View {
     
     @State private var selection: String? = nil
     
-    let columns = [GridItem(.adaptive(minimum: 160))]
+    //let columns = [GridItem(.adaptive(minimum: 200))]
+    
+    let columns:[GridItem] = Array(repeating: .init(.flexible()), count: 1)
     
     let baseUrl = "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10"
     
     //获取GankList
     @State var items = [Gank]()
     
+    @State private var isShowing = true
+    
+    let transaction = Transaction(animation: .easeInOut(duration: 2.0))
+    
+    @ObservedObject var model = MyModel()
+    
+    
     
     init(){
         //得到头部
-        getHeader()
+        //getHeader()
         
         // 网络数据请求
         //getNetwork()
@@ -70,21 +78,41 @@ struct GankView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                LazyVGrid(columns: columns, spacing:10)
-                {
-                    ForEach(items){ item in
-                        if let firstImage = item.images.first {
-                            KFImage(URL(string: firstImage))
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                VStack{
+                    LazyVGrid(columns: columns, spacing:5)
+                    {
+                        ForEach(items){ item in
+                            GankItemView(item: item)
                         }
                     }
-                    .navigationBarTitle("干货", displayMode: .inline)
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onAppear{
+                    self.getNetwork()
                 }
-            }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear(perform: getNetwork)
+                
+                if isShowing {
+                    LazyVStack{
+                        Text("正在加载更多...")
+                    }.frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center).onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                            self.isShowing = true
+                            self.getNetwork()
+                        }
+                    }
+                }
+            }.navigationBarTitle("干货")
         }
     }
+    
+    func load() {
+        // Simulate async task
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            self.isShowing = false
+            self.items.removeAll()
+            self.getNetwork()
+        }
+    }
+    
     
     struct GankView_Previews: PreviewProvider {
         static var previews: some View {
@@ -93,3 +121,21 @@ struct GankView: View {
     }
 }
 
+
+class MyModel: ObservableObject {
+    @Published var loading: Bool = false {
+        didSet {
+            if oldValue == false && loading == true {
+                self.load()
+            }
+        }
+    }
+    
+    func load() {
+        // Simulate async task
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            self.loading = false
+            
+        }
+    }
+}

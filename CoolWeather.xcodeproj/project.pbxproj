@@ -23,6 +23,9 @@
 		BCCEA7D525B00CE100EFDC5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D425B00CE100EFDC5D /* Preview Assets.xcassets */; };
 		BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */; };
 		BCE998A025B1329D00430C02 /* CoolWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */; };
+		BCE998AA25B13A3900430C02 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE998A925B13A3900430C02 /* RefreshableScrollView.swift */; };
+		BCE998AD25B167F900430C02 /* GankItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE998AC25B167F900430C02 /* GankItemView.swift */; };
+		BCE998B025B16DE800430C02 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE998AF25B16DE800430C02 /* UserData.swift */; };
 		BE4F480725B06302001C1DCD /* Gankk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F480625B06302001C1DCD /* Gankk.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,9 @@
 		BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtils.swift; sourceTree = "<group>"; };
 		BCE9989A25B1315000430C02 /* CoolWeather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoolWeather.entitlements; sourceTree = "<group>"; };
 		BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolWeatherApp.swift; sourceTree = "<group>"; };
+		BCE998A925B13A3900430C02 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
+		BCE998AC25B167F900430C02 /* GankItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankItemView.swift; sourceTree = "<group>"; };
+		BCE998AF25B16DE800430C02 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BE4F480625B06302001C1DCD /* Gankk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gankk.swift; sourceTree = "<group>"; };
 		DCC687BC4B0BF0A0784379F9 /* Pods-CoolWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolWeather.debug.xcconfig"; path = "Target Support Files/Pods-CoolWeather/Pods-CoolWeather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				BC842B2425B0294500E3F2D1 /* GridView.swift */,
+				BCE998A925B13A3900430C02 /* RefreshableScrollView.swift */,
+				BCE998AC25B167F900430C02 /* GankItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,6 +118,7 @@
 				BCCEA7D625B00CE100EFDC5D /* Info.plist */,
 				BCCEA7D325B00CE100EFDC5D /* Preview Content */,
 				BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */,
+				BCE998AF25B16DE800430C02 /* UserData.swift */,
 			);
 			path = CoolWeather;
 			sourceTree = "<group>";
@@ -292,12 +301,15 @@
 				BC842B2925B02E7F00E3F2D1 /* GankModel.swift in Sources */,
 				BC842B1825B014F000E3F2D1 /* CView.swift in Sources */,
 				BC842B1E25B01A9A00E3F2D1 /* NavigationBar.swift in Sources */,
+				BCE998AD25B167F900430C02 /* GankItemView.swift in Sources */,
 				BC842B1B25B017AE00E3F2D1 /* GankView.swift in Sources */,
 				BE4F480725B06302001C1DCD /* Gankk.swift in Sources */,
 				BC842B1225B014D300E3F2D1 /* AView.swift in Sources */,
 				BC842B3125B0417900E3F2D1 /* GankMModel.swift in Sources */,
+				BCE998B025B16DE800430C02 /* UserData.swift in Sources */,
 				BC842B0F25B0123F00E3F2D1 /* TabarView.swift in Sources */,
 				BC842B2125B0234F00E3F2D1 /* ComExtension.swift in Sources */,
+				BCE998AA25B13A3900430C02 /* RefreshableScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

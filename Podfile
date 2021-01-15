@@ -9,5 +9,6 @@ target 'CoolWeather' do
   pod 'Alamofire'
   pod 'HandyJSON', '~> 5.0.0'
   pod 'Kingfisher', '~> 6.0'
+  pod "SwiftUIRefresh"
 
 end
