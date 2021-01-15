@@ -18,16 +18,24 @@ struct GankView: View {
     
     let columns:[GridItem] = Array(repeating: .init(.flexible()), count: 1)
     
-    let baseUrl = "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10"
+    let baseUrl = "https://gank.io/api/v2/data/category/Girl/type/Girl/"
     
     //获取GankList
     @State var items = [Gank]()
     
+    // 获取model
+    @State var model = GankModel()
+    
     @State private var isShowing = true
+    
+    @State var page = 1
+    
+    //默认为10
+    @State var count = 10
     
     let transaction = Transaction(animation: .easeInOut(duration: 2.0))
     
-    @ObservedObject var model = MyModel()
+    //@ObservedObject var model = MyModel()
     
     
     
@@ -37,7 +45,7 @@ struct GankView: View {
         
         // 网络数据请求
         //getNetwork()
-        
+        print("我会执行嘛")
     }
     
     func getHeader(){
@@ -51,22 +59,23 @@ struct GankView: View {
     }
     
     //获取网络数据
-    func getNetwork(){
+    func getNetwork(page:Int){
         
         let headers: HTTPHeaders = [
             "Content-Type":"application/json"
         ]
         
-        ApiUtils.shared.netWork(url: baseUrl, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: { result in
+        ApiUtils.shared.netWork(url: baseUrl+"page/\(page)/count/10", method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: { result in
 
             guard let gank = try? JSONDecoder().decode(GankModel.self, from: result) else{
                 return
             }
-            
-            let items:[Gank] = gank.data
+   
+            self.model = gank
             
             DispatchQueue.main.async {
-                self.items = items
+                self.items.append(contentsOf: self.model.data)
+                //self.items.removingDuplicates()
             }
             
         }, error: { error in
@@ -86,21 +95,25 @@ struct GankView: View {
                         }
                     }
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
-                .onAppear{
-                    self.getNetwork()
-                }
                 
-                if isShowing {
+                if !self.model.isComplete {
                     LazyVStack{
                         Text("正在加载更多...")
                     }.frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center).onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                            self.isShowing = true
-                            self.getNetwork()
+                            self.model.isComplete = false
+                            //每次页面增加1
+                            self.page += 1
+                            self.getNetwork(page: self.page)
                         }
                     }
                 }
             }.navigationBarTitle("干货")
+            .onAppear{
+                print("我执行了几次")
+                self.getNetwork(page: self.page)
+            }
+            
         }
     }
     
@@ -109,7 +122,7 @@ struct GankView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
             self.isShowing = false
             self.items.removeAll()
-            self.getNetwork()
+            self.getNetwork(page: self.page)
         }
     }
     

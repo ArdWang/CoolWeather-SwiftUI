@@ -11,7 +11,8 @@ import SwiftUI
 struct GankModel: Codable {
     var data: [Gank] = []
     //let page, pageCount, status, totalCounts: Int
-    
+    // 是否加载完成
+    var isComplete = false
     var page:Int = 0
     var pageCount:Int = 0
     var status:Int = 0
