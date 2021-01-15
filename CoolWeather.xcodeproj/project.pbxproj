@@ -18,11 +18,11 @@
 		BC842B2525B0294500E3F2D1 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B2425B0294500E3F2D1 /* GridView.swift */; };
 		BC842B2925B02E7F00E3F2D1 /* GankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B2825B02E7F00E3F2D1 /* GankModel.swift */; };
 		BC842B3125B0417900E3F2D1 /* GankMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B3025B0417800E3F2D1 /* GankMModel.swift */; };
-		BCCEA7CE25B00CDB00EFDC5D /* CoolWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7CD25B00CDB00EFDC5D /* CoolWeatherApp.swift */; };
 		BCCEA7D025B00CDB00EFDC5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */; };
 		BCCEA7D225B00CE100EFDC5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */; };
 		BCCEA7D525B00CE100EFDC5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D425B00CE100EFDC5D /* Preview Assets.xcassets */; };
 		BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */; };
+		BCE998A025B1329D00430C02 /* CoolWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */; };
 		BE4F480725B06302001C1DCD /* Gankk.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F480625B06302001C1DCD /* Gankk.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,12 +40,13 @@
 		BC842B2825B02E7F00E3F2D1 /* GankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankModel.swift; sourceTree = "<group>"; };
 		BC842B3025B0417800E3F2D1 /* GankMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankMModel.swift; sourceTree = "<group>"; };
 		BCCEA7CA25B00CDB00EFDC5D /* CoolWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCCEA7CD25B00CDB00EFDC5D /* CoolWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolWeatherApp.swift; sourceTree = "<group>"; };
 		BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCCEA7D425B00CE100EFDC5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BCCEA7D625B00CE100EFDC5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUtils.swift; sourceTree = "<group>"; };
+		BCE9989A25B1315000430C02 /* CoolWeather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoolWeather.entitlements; sourceTree = "<group>"; };
+		BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolWeatherApp.swift; sourceTree = "<group>"; };
 		BE4F480625B06302001C1DCD /* Gankk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gankk.swift; sourceTree = "<group>"; };
 		DCC687BC4B0BF0A0784379F9 /* Pods-CoolWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolWeather.debug.xcconfig"; path = "Target Support Files/Pods-CoolWeather/Pods-CoolWeather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,15 +100,16 @@
 		BCCEA7CC25B00CDB00EFDC5D /* CoolWeather */ = {
 			isa = PBXGroup;
 			children = (
+				BCE9989A25B1315000430C02 /* CoolWeather.entitlements */,
 				BCCEA7E825B00FEB00EFDC5D /* Model */,
 				BCCEA7DF25B00D5800EFDC5D /* Utils */,
 				BCCEA7DE25B00D4E00EFDC5D /* UI */,
 				BCCEA7DD25B00D4400EFDC5D /* Resources */,
-				BCCEA7CD25B00CDB00EFDC5D /* CoolWeatherApp.swift */,
 				BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */,
 				BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */,
 				BCCEA7D625B00CE100EFDC5D /* Info.plist */,
 				BCCEA7D325B00CE100EFDC5D /* Preview Content */,
+				BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */,
 			);
 			path = CoolWeather;
 			sourceTree = "<group>";
@@ -155,9 +157,7 @@
 			children = (
 				BC842B2825B02E7F00E3F2D1 /* GankModel.swift */,
 				BC842B3025B0417800E3F2D1 /* GankMModel.swift */,
-
 				BE4F480625B06302001C1DCD /* Gankk.swift */,
-
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,9 +287,9 @@
 				BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */,
 				BC842B1525B014E400E3F2D1 /* BView.swift in Sources */,
 				BCCEA7D025B00CDB00EFDC5D /* ContentView.swift in Sources */,
+				BCE998A025B1329D00430C02 /* CoolWeatherApp.swift in Sources */,
 				BC842B2525B0294500E3F2D1 /* GridView.swift in Sources */,
 				BC842B2925B02E7F00E3F2D1 /* GankModel.swift in Sources */,
-				BCCEA7CE25B00CDB00EFDC5D /* CoolWeatherApp.swift in Sources */,
 				BC842B1825B014F000E3F2D1 /* CView.swift in Sources */,
 				BC842B1E25B01A9A00E3F2D1 /* NavigationBar.swift in Sources */,
 				BC842B1B25B017AE00E3F2D1 /* GankView.swift in Sources */,
@@ -426,6 +426,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoolWeather/CoolWeather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolWeather/Preview Content\"";
 				DEVELOPMENT_TEAM = 4B5F6ELE34;
@@ -438,6 +439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rnd.CoolWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoolWeather/CoolWeather.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CoolWeather/Preview Content\"";
 				DEVELOPMENT_TEAM = 4B5F6ELE34;
@@ -461,6 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rnd.CoolWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

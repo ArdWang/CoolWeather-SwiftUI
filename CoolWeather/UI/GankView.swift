@@ -9,6 +9,8 @@ import SwiftUI
 import Alamofire
 import Kingfisher
 
+
+
 struct GankView: View {
     
     @State private var selection: String? = nil
@@ -18,7 +20,7 @@ struct GankView: View {
     let baseUrl = "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/10"
     
     //获取GankList
-    @State var items = [Datum]()
+    @State var items = [Gank]()
     
     
     init(){
@@ -48,40 +50,17 @@ struct GankView: View {
         ]
         
         ApiUtils.shared.netWork(url: baseUrl, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: { result in
-            
-            if let model = GankModel.deserialize(from: result){
-                if model.data.count > 0 {
-                    DispatchQueue.main.async {
-                        self.gankList = model.data
-                    }
-                }
-//            if let model = GankModel.deserialize(from: result){
-//                if model.data.count > 0 {
-//                    self.gankList = model.data
-//                }
-//            }
 
-            let data = result.data(using: .utf8)
-            
-            guard let gank = try? JSONDecoder().decode(Gankk.self, from: data!) else {
+            guard let gank = try? JSONDecoder().decode(GankModel.self, from: result) else{
                 return
             }
-//            if let response = try? JSONDecoder().decode(GankMModel.self, from: result) {
-//                DispatchQueue.main.async {
-//                    self.gankList = response.data
-//                }
-//
-//            }
             
-            
-            
-            let items: [Datum] = gank.data
-            
-            print("items's count: \(items.count)")
+            let items:[Gank] = gank.data
             
             DispatchQueue.main.async {
                 self.items = items
             }
+            
         }, error: { error in
             print("error is \(error)")
         })
@@ -91,7 +70,7 @@ struct GankView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                LazyVGrid(columns: columns, spacing:20)
+                LazyVGrid(columns: columns, spacing:10)
                 {
                     ForEach(items){ item in
                         if let firstImage = item.images.first {
@@ -113,3 +92,4 @@ struct GankView: View {
         }
     }
 }
+

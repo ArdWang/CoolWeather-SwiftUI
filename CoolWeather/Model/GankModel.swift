@@ -5,36 +5,37 @@
 //  Created by RND on 2021/1/14.
 //
 
-import UIKit
-import HandyJSON
+import SwiftUI
 
-struct GankModel: HandyJSON {
+
+struct GankModel: Codable {
+    let data: [Gank]
+    let page, pageCount, status, totalCounts: Int
     
-    var data:[Gank] = []
-    
-    //required init() {}
+    enum CodingKeys: String, CodingKey {
+        case data, page
+        case pageCount = "page_count"
+        case status
+        case totalCounts = "total_counts"
+    }
 }
 
-
-struct Gank: HandyJSON{
+struct Gank: Identifiable,Codable{
+    let id: String
+    let author: String
+    let category: String
+    let createdAt, desc: String
+    let images: [String]
+    let likeCounts: Int
+    let publishedAt: String
+    let stars: Int
+    let title: String
+    let type: String
+    let url: String
+    let views: Int
     
-    var _id:String?
-    var author:String?
-    var category:String?
-    var createdAt:String?
-    var desc:String?
-    var images:[String] = []
-    var likeCounts:String?
-    var publishedAt:String?
-    var stars:String?
-    var title:String?
-    var type:String?
-    var url:String?
-    var views:String?
-
-
-    required init() {}
-
-    
-    //required init() {}
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case author, category, createdAt, desc, images, likeCounts, publishedAt, stars, title, type, url, views
+    }
 }

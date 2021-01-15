@@ -10,7 +10,11 @@ import Alamofire
 
 
 //请求成功
-typealias ResponseSuccess = (_ response: String) -> Void
+typealias ResponseSuccess = (_ response: Data) -> Void
+
+//请求成功
+typealias ResponseSuccessString = (_ response: String) -> Void
+
 //请求失败
 typealias ResponseFail = (_ error: String) -> Void
 //网络状态
@@ -71,7 +75,7 @@ class ApiUtils: NSObject {
         url:String,
         fileName:String,
         method: String,
-        success: @escaping ResponseSuccess,
+        success: @escaping ResponseSuccessString,
         progress: @escaping ProgressBlock,
         error: @escaping ResponseFail){
         requestWithUD(url: url, fileName: fileName, method: method, success: success, progress: progress, error: error)
@@ -82,7 +86,7 @@ class ApiUtils: NSObject {
                             url: String,
                             fileName:String,
                             method: String,
-                            success: @escaping ResponseSuccess,
+                            success: @escaping ResponseSuccessString,
                             progress: @escaping ProgressBlock,
                             error: @escaping ResponseFail) {
         let data = Data("data".utf8)
@@ -146,8 +150,9 @@ class ApiUtils: NSObject {
                    headers: headers).responseJSON { (response) in
                     switch response.result {
                     case .success:
-                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        success(json ?? "")
+                        //let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                        //success(json ?? "")
+                        success(response.data!)
                     case .failure(let error):
                         err(ApiError.apiError(with: error as NSError).localizedDescription)
                     }
@@ -172,8 +177,9 @@ class ApiUtils: NSObject {
                    headers: headers).responseJSON { (response) in
                     switch response.result {
                     case .success:
-                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        success(json ?? "")
+                        //let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                        //success(json ?? "")
+                        success(response.data!)
                     case .failure(let error):
                         err(ApiError.apiError(with: error as NSError).localizedDescription)
                     }
@@ -198,8 +204,9 @@ class ApiUtils: NSObject {
                    headers: headers).responseJSON { (response) in
                     switch response.result {
                     case .success:
-                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        success(json ?? "")
+                        //let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                        //success(json ?? "")
+                        success(response.data!)
                     case .failure(let error):
                         err(ApiError.apiError(with: error as NSError).localizedDescription)
                     }
@@ -222,8 +229,9 @@ class ApiUtils: NSObject {
                    headers: headers).responseJSON { (response) in
                     switch response.result {
                     case .success:
-                        let json = String(data: response.data!, encoding: String.Encoding.utf8)
-                        success(json ?? "")
+                        //let json = String(data: response.data!, encoding: String.Encoding.utf8)
+                        //success(json ?? "")
+                        success(response.data!)
                     case .failure(let error):
                         err(ApiError.apiError(with: error as NSError).localizedDescription)
                     }
@@ -234,7 +242,7 @@ class ApiUtils: NSObject {
     private func manageDownload(
         url:String,
         fileName:String,
-        success: @escaping ResponseSuccess,
+        success: @escaping ResponseSuccessString,
         err: @escaping ResponseFail,
         progress: @escaping ProgressBlock){
         
@@ -266,7 +274,7 @@ class ApiUtils: NSObject {
     private func manageUpload(
         data:Data,
         url:String,
-        success: @escaping ResponseSuccess,
+        success: @escaping ResponseSuccessString,
         err: @escaping ResponseFail,
         progress: @escaping ProgressBlock){
         AF.upload(data, to: url).uploadProgress { progres in
@@ -277,6 +285,7 @@ class ApiUtils: NSObject {
             case .success:
                 let json = String(data: response.data!, encoding: String.Encoding.utf8)
                 success(json ?? "")
+                //success(response.data!)
             case .failure(let error):
                 err(ApiError.apiError(with: error as NSError).localizedDescription)
             }
