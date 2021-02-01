@@ -8,9 +8,12 @@ import SwiftUI
 
 @main
 struct CoolWeatherApp: App {
+    
+    var content = Content()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(content)
         }
     }
 }
