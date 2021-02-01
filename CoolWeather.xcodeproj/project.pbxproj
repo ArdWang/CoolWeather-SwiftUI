@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		59F8DD2FCD68B0B7ACB9D63F /* Pods_CoolWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 914E0DE62D740931C6502DBA /* Pods_CoolWeather.framework */; };
+		BC2487AC25C7ADB90098EE45 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2487AB25C7ADB90098EE45 /* NewsView.swift */; };
+		BC2487AF25C7AF930098EE45 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2487AE25C7AF930098EE45 /* Content.swift */; };
+		BC2487B225C7B0C40098EE45 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2487B125C7B0C40098EE45 /* NewsModel.swift */; };
+		BC2487B525C7D8C10098EE45 /* NewsImageCellRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2487B425C7D8C10098EE45 /* NewsImageCellRow.swift */; };
+		BC2487B825C7E0CF0098EE45 /* NewsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2487B725C7E0CF0098EE45 /* NewsImageCell.swift */; };
 		BC842B0F25B0123F00E3F2D1 /* TabarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B0E25B0123F00E3F2D1 /* TabarView.swift */; };
 		BC842B1225B014D300E3F2D1 /* AView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B1125B014D200E3F2D1 /* AView.swift */; };
 		BC842B1525B014E400E3F2D1 /* BView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B1425B014E400E3F2D1 /* BView.swift */; };
@@ -32,6 +37,11 @@
 /* Begin PBXFileReference section */
 		716C3C51E1C3E0616F31CA38 /* Pods-CoolWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolWeather.release.xcconfig"; path = "Target Support Files/Pods-CoolWeather/Pods-CoolWeather.release.xcconfig"; sourceTree = "<group>"; };
 		914E0DE62D740931C6502DBA /* Pods_CoolWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC2487AB25C7ADB90098EE45 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		BC2487AE25C7AF930098EE45 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		BC2487B125C7B0C40098EE45 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		BC2487B425C7D8C10098EE45 /* NewsImageCellRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageCellRow.swift; sourceTree = "<group>"; };
+		BC2487B725C7E0CF0098EE45 /* NewsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageCell.swift; sourceTree = "<group>"; };
 		BC842B0E25B0123F00E3F2D1 /* TabarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabarView.swift; sourceTree = "<group>"; };
 		BC842B1125B014D200E3F2D1 /* AView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AView.swift; sourceTree = "<group>"; };
 		BC842B1425B014E400E3F2D1 /* BView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BView.swift; sourceTree = "<group>"; };
@@ -83,6 +93,8 @@
 				BC842B2425B0294500E3F2D1 /* GridView.swift */,
 				BCE998A925B13A3900430C02 /* RefreshableScrollView.swift */,
 				BCE998AC25B167F900430C02 /* GankItemView.swift */,
+				BC2487B425C7D8C10098EE45 /* NewsImageCellRow.swift */,
+				BC2487B725C7E0CF0098EE45 /* NewsImageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,6 +131,7 @@
 				BCCEA7D325B00CE100EFDC5D /* Preview Content */,
 				BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */,
 				BCE998AF25B16DE800430C02 /* UserData.swift */,
+				BC2487AE25C7AF930098EE45 /* Content.swift */,
 			);
 			path = CoolWeather;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 				BC842B1725B014F000E3F2D1 /* CView.swift */,
 				BC842B1A25B017AE00E3F2D1 /* GankView.swift */,
 				BC842B1D25B01A9A00E3F2D1 /* NavigationBar.swift */,
+				BC2487AB25C7ADB90098EE45 /* NewsView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -167,6 +181,7 @@
 				BC842B2825B02E7F00E3F2D1 /* GankModel.swift */,
 				BC842B3025B0417800E3F2D1 /* GankMModel.swift */,
 				BE4F480625B06302001C1DCD /* Gankk.swift */,
+				BC2487B125C7B0C40098EE45 /* NewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,7 +310,10 @@
 			files = (
 				BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */,
 				BC842B1525B014E400E3F2D1 /* BView.swift in Sources */,
+				BC2487B525C7D8C10098EE45 /* NewsImageCellRow.swift in Sources */,
 				BCCEA7D025B00CDB00EFDC5D /* ContentView.swift in Sources */,
+				BC2487AC25C7ADB90098EE45 /* NewsView.swift in Sources */,
+				BC2487B225C7B0C40098EE45 /* NewsModel.swift in Sources */,
 				BCE998A025B1329D00430C02 /* CoolWeatherApp.swift in Sources */,
 				BC842B2525B0294500E3F2D1 /* GridView.swift in Sources */,
 				BC842B2925B02E7F00E3F2D1 /* GankModel.swift in Sources */,
@@ -306,7 +324,9 @@
 				BE4F480725B06302001C1DCD /* Gankk.swift in Sources */,
 				BC842B1225B014D300E3F2D1 /* AView.swift in Sources */,
 				BC842B3125B0417900E3F2D1 /* GankMModel.swift in Sources */,
+				BC2487AF25C7AF930098EE45 /* Content.swift in Sources */,
 				BCE998B025B16DE800430C02 /* UserData.swift in Sources */,
+				BC2487B825C7E0CF0098EE45 /* NewsImageCell.swift in Sources */,
 				BC842B0F25B0123F00E3F2D1 /* TabarView.swift in Sources */,
 				BC842B2125B0234F00E3F2D1 /* ComExtension.swift in Sources */,
 				BCE998AA25B13A3900430C02 /* RefreshableScrollView.swift in Sources */,
