@@ -25,31 +25,26 @@ struct NewsView: View {
         NavigationView{
             ScrollView{
                 ForEach(items){ item in
-                    VStack(alignment:.leading){
+                    VStack(alignment:.leading, spacing: 10){
+                        
                         Text(item.title).font(.title)
                             
                         // 如果当前的count>0 执行操作
-                        if item.news.count > 0 {
+                        /*if item.news.count > 0 {
                             item.news[0].c != "" ?
                             Text(item.news[0].c) : Text("")
                         }else{
                             Text("")
                         }
-                        
+                        */
                         //self.content.handlerImage(news: item.news)
+                        
+                        //分割线
+                        Divider()
+                        
                         
                         NewsImageCell(images: self.content.handlerImage(news: item.news), width: UIScreen.main.bounds.width-30)
                         
-                        
-                        
-
-                        /*Group{
-                            
-                            // 显示图片
-                            NewsImageCellRow(news: item.news, width: UIScreen.main.bounds.width-30)
-                        }*/
-                        //NewsImageCellRow(news:i, width: UIScreen.main.bounds.width)
-                            
                     }
                 }
                 
