@@ -24,7 +24,7 @@ struct TabarView: View {
                 Text("新闻")
             }.tag(0)
             
-            BView().tabItem {
+            DemoView().tabItem {
                 Image(systemName: "cloud")
                 Text("天气")
             }.tag(1)

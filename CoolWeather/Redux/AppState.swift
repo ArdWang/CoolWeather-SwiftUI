@@ -42,6 +42,8 @@ extension AppState{
         
         var isShowing = false
         
+        var noMore = false
+        
         var page = 1
         
         //默认为10

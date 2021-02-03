@@ -43,29 +43,53 @@ struct GankView: View {
         UINavigationBar.appearance().compactAppearance = navBarAppearance
     }
     
+    private var refreshListener: some View {
+        // 一个任意视图，我们将把它添置在滚动列表的尾部
+        LoadingView(isLoading: binding.isShowing.wrappedValue)
+          .frame(width: 150, height: 35) // height: 如果有加载动画就设置，没有设置为0就可以
+          .onAppear(perform: {
+            binding.page.wrappedValue += 1
+            print("page is:  \(binding.page.wrappedValue)")
+            Store.shared.getNetwork(page: binding.page.wrappedValue)
+          })
+      }
     
     var body: some View {
         
         NavigationView {
-            
             ScrollView{
-                
                 LazyVStack{
-                    
                     //注意这里
                     ForEach(binding.items.wrappedValue){ item in
                         GankCell(item: item)
                     }
                     
-                    LoadingView(isLoading: binding.isShowing.wrappedValue)
-                        .frame(width: UIScreen.main.bounds.width, height: 0)
-                        .onAppear(perform: {
-                            binding.page.wrappedValue += 1
-                            print("page is:  \(binding.page.wrappedValue)")
-                            Store.shared.getNetwork(page: binding.page.wrappedValue)
-                        })
+                    if !binding.noMore.wrappedValue {
+                        if binding.isShowing.wrappedValue{
+                            Text("正在加载").frame(height: 44)
+                                .animation(.easeInOut)
+                        }else{
+                            Text("正在加载").frame(height: 44)
+                                .animation(.easeInOut)
+                                .onAppear{
+                                    print("onAppear = \(Date())")
+                                    Store.shared.loadMoreGank()
+                                }
+                                .onDisappear{
+                                    print("onDisappear = \(Date())")
+                                }
+                        }
+                    }else{
+                        //Alert()
+                        Text("没有更多了").frame(height:44)
+                    }
                 }
-            }.navigationBarTitle("干货")
+                .padding(.bottom, 10)
+                .font(.system(size: 12))
+                .foregroundColor(Color(.secondaryLabel))
+            }
+            .padding(.top, 10)
+            .navigationBarTitle("干货")
             .onAppear{
                 Store.shared.getNetwork(page: binding.page.wrappedValue)
             }
@@ -74,22 +98,23 @@ struct GankView: View {
             }
         }
     }
-    
+}
 
-    struct GankView_Previews: PreviewProvider {
-        static var previews: some View {
-            GankView()
-        }
+
+struct GankView_Previews: PreviewProvider {
+    static var previews: some View {
+        GankView().environmentObject(Store.shared)
     }
 }
+
 
 
 struct GankCell: View {
     
     //@EnvironmentObject var store: Store
     /*var binding: Binding<AppState.Gank>{
-        $store.appState.gank
-    }*/
+     $store.appState.gank
+     }*/
     
     var item: Gankum
     
@@ -131,7 +156,7 @@ struct GankCell: View {
 }
 
 
-struct LoadingView: View {
+private struct LoadingView: View {
     
     var isLoading: Bool = true
     
