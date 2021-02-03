@@ -39,7 +39,11 @@ extension Store{
 
             DispatchQueue.main.async {
                 self.appState.gank.model = gank
-                self.appState.gank.items += self.appState.gank.model.data
+                if self.appState.gank.page == 1 {
+                    self.appState.gank.items = self.appState.gank.model.data
+                }else{
+                    self.appState.gank.items += self.appState.gank.model.data
+                }
                 self.appState.gank.isShowing = false
                 
                 // 没有更多了
