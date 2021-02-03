@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct GankModel: Codable {
-    var data: [Gank] = []
+    var data: [Gankum] = []
     //let page, pageCount, status, totalCounts: Int
     // 是否加载完成
     var isComplete = false
@@ -26,7 +26,7 @@ struct GankModel: Codable {
     }
 }
 
-struct Gank: Identifiable,Codable{
+struct Gankum: Identifiable,Codable{
     var id: String = ""
     var author: String = ""
     var category: String = ""

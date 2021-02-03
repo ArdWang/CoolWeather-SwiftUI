@@ -15,7 +15,6 @@ class Content: ObservableObject {
     
     // 处理图片数据
     func handlerImage(news: [News])->[String]{
-        images.removeAll()
         for m in news{
             if m.j != ""{
                 images.append(m.j)

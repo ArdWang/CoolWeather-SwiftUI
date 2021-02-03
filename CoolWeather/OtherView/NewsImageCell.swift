@@ -13,14 +13,15 @@ private let kImageSpace: CGFloat = 6
 struct NewsImageCell: View {
     
     let images: [String]
-    
     let width: CGFloat
     
+    //@EnvironmentObject var content: Content
+    
+    //@State private var images:[String]
+     
     var body: some View {
-       
-     // print("with is: \(width)")
-        
-       Group{
+        Group{
+           
             if images.count == 1 {
                 // 显示图片
                 KFImage(URL(string: images[0]))

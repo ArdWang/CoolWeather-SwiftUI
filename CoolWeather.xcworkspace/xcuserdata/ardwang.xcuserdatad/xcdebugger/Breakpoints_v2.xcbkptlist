@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "getNetwork()"
+            landmarkName = "getHeader()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "getNetwork()"
+            landmarkName = "getNetwork(page:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "getNetwork()"
+            landmarkName = "getNetwork(page:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -64,8 +64,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "getNetwork(page:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "8471F483-803C-442B-B29A-4C454B1182A1 - 144ff2727d241f0c"
