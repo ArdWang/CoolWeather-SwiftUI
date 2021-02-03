@@ -13,7 +13,9 @@ struct CoolWeatherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(content)
+            ContentView()
+                .environmentObject(Store.shared)
+                //.environmentObject(content)
         }
     }
 }

@@ -37,9 +37,9 @@ struct NewsView: View {
                         }
                         
                         //self.content.handlerImage(news: item.news)
-                        
+                        /*
                         NewsImageCell(images: self.content.handlerImage(news: item.news), width: UIScreen.main.bounds.width-30)
-                        
+                        */
                         
                         /*Group{
                             
