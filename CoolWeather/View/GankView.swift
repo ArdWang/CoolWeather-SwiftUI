@@ -50,7 +50,7 @@ struct GankView: View {
           .onAppear(perform: {
             binding.page.wrappedValue += 1
             print("page is:  \(binding.page.wrappedValue)")
-            Store.shared.getNetwork(page: binding.page.wrappedValue)
+            Store.shared.getGank(page: binding.page.wrappedValue)
           })
       }
     
@@ -91,7 +91,7 @@ struct GankView: View {
             .padding(.top, 10)
             .navigationBarTitle("干货")
             .onAppear{
-                Store.shared.getNetwork(page: binding.page.wrappedValue)
+                Store.shared.getGank(page: binding.page.wrappedValue)
             }
             .onDisappear{
                 //

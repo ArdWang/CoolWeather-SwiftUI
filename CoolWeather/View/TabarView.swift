@@ -19,7 +19,7 @@ struct TabarView: View {
     
     var body: some View {
         TabView(selection: $selectTab){
-            NewsView(image: "").tabItem {
+            NewsView().tabItem {
                 Image(systemName: "newspaper")
                 Text("新闻")
             }.tag(0)

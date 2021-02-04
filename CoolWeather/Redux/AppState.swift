@@ -6,13 +6,19 @@
 //
 
 import Foundation
+import AVKit
 
 struct AppState {
     
     var a = A()
     var b = B()
     var c = C()
+    
+    // 干货
     var gank = Gank()
+    
+    // 新闻
+    var news = News()
     
 }
 
@@ -48,5 +54,17 @@ extension AppState{
         
         //默认为10
         var count = 10
+    }
+    
+    
+    struct News {
+        
+        var items = [Datam]()
+        
+        var model = NewsModel()
+        
+        //图片
+        var images:[String] = []
+        
     }
 }
