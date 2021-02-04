@@ -158,7 +158,7 @@ struct GankCell: View {
         }
         .sheet(isPresented: $isPresent, content: {
             //images:item.images
-            SelectImageView().environmentObject(Store.shared)
+            SelectImageView(images:item.images).environmentObject(Store.shared)
         })
     }
     

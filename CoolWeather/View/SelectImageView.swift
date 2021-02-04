@@ -17,26 +17,25 @@ struct SelectImageView: View {
         $store.appState.gank
     }
     
-    let images: [String] = ["http://gank.io/images/f4f6d68bf30147e1bdd4ddbc6ad7c2a2",
+    var images: [String] = ["http://gank.io/images/f4f6d68bf30147e1bdd4ddbc6ad7c2a2",
     "http://gank.io/images/dc75cbde1d98448183e2f9514b4d1320",
     "http://gank.io/images/d237f507bf1946d2b0976e581f8aab9b",
     "http://gank.io/images/6b2efa591564475fb8bc32291fb0007c"]
     
-    @State private var currentPage = 1
+    @State private var currentPage = 0
     
     var body: some View {
         NavigationView{
             VStack{
-                Text("当前的页数为 \(currentPage) 页")
                 TabView(selection: $currentPage){
-                    ForEach(self.images, id: \.self){ item in
-                        ImageCell(image: item)
+                    ForEach(0..<self.images.count){ (index) in
+                        ImageCell(image: self.images[index])
                     }
                 }
                 .tabViewStyle(PageTabViewStyle())
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             }
-            .navigationBarTitle("\(self.currentPage)/\(self.images.count)", displayMode: .inline)
+            .navigationBarTitle("\(self.currentPage+1)/\(self.images.count)", displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action:{
                     self.presentationMode.wrappedValue.dismiss()
@@ -75,6 +74,7 @@ struct ImageCell:View {
                 KFImage(URL(string: mimage))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
                     .scaleEffect(scale)
                     .gesture(
                         MagnificationGesture()
