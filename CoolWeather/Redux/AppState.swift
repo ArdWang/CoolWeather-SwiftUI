@@ -10,12 +10,11 @@ import AVKit
 
 struct AppState {
     
-    var a = A()
-    var b = B()
-    var c = C()
-    
     // 干货
     var gank = Gank()
+    
+    // 天气
+    var weather = Weather()
     
     // 新闻
     var news = News()
@@ -23,18 +22,6 @@ struct AppState {
 }
 
 extension AppState{
-    
-    struct A {
-        
-    }
-    
-    struct B {
-        
-    }
-    
-    struct C {
-        
-    }
     
     struct Gank {
         
@@ -54,6 +41,17 @@ extension AppState{
         
         //默认为10
         var count = 10
+    }
+    
+    struct Weather {
+        
+        // 获取天气地址
+        var state = StateModel()
+        
+        var provice = [Province]()
+        
+        // 获取天气信息
+        var weather = WeatherModel()
     }
     
     

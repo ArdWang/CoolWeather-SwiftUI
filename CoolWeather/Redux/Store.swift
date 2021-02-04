@@ -50,7 +50,6 @@ extension Store{
                 if self.appState.gank.model.pageCount == self.appState.gank.page {
                     self.appState.gank.noMore = true
                 }
-                
             }
             
         }, error: { error in
@@ -118,4 +117,37 @@ extension Store{
         }
         return player
     }
+    
+    
+    /**获取天气的请求信息*/
+    //==========================================天气处理模块========================
+    func getState(){
+        let guolin_url = "http://guolin.tech/api/china"
+        
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json"
+        ]
+        
+        ApiUtils.shared.netWork(url: guolin_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
+            result in
+            
+            guard let state = try? JSONDecoder().decode([Province].self, from: result) else{
+                return
+            }
+   
+            DispatchQueue.main.async {
+                self.appState.weather.provice = state
+                // self.appState.news.items = news.data
+                print("items count is \(self.appState.weather.provice.count)")
+                // self.combineImage(news: self.appState.news.items.)
+                
+            }
+        }, error: { error in
+            print("error is \(error)")
+        })
+        
+        
+    }
+    
+    
 }
