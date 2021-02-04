@@ -118,13 +118,15 @@ struct GankCell: View {
     
     var item: Gankum
     
+    @State private var isPresent = false
+    
     var body: some View{
         
         VStack{
             if let firstImage = item.images.first {
                 KFImage(URL(string: firstImage))
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
             }
             HStack{
                 VStack(alignment: .leading) {
@@ -151,6 +153,13 @@ struct GankCell: View {
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
         .padding([.top, .horizontal])
+        .onTapGesture{
+            self.isPresent.toggle()
+        }
+        .sheet(isPresented: $isPresent, content: {
+            //images:item.images
+            SelectImageView().environmentObject(Store.shared)
+        })
     }
     
 }
@@ -166,4 +175,7 @@ private struct LoadingView: View {
         }
     }
 }
+
+
+
 
