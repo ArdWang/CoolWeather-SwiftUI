@@ -56,9 +56,9 @@ struct WeatherView: View {
                     
                     VStack(spacing:10){
                         HStack(spacing:10){
-                            AirView(index: 0)
-                            AirView(index: 1)
-                            AirView(index: 2)
+                            //AirView(index: 0)
+                            //AirView(index: 1)
+                            //AirView(index: 2)
                         }
                     }.padding(10)
                     .background(Color(.systemBackground))
@@ -317,8 +317,8 @@ struct AirView: View {
     var index: Int
     
     var body: some View{
-        
-            Group{
+        Text("dasdas")
+            /*Group{
                 if self.binding.air.heWeather6.wrappedValue.count > 0 {
                 switch index{
                 case 0:
@@ -329,7 +329,7 @@ struct AirView: View {
                     AirViewCell(bgColor: Color("piColor"), air: self.binding.air.heWeather6.wrappedValue[0])
                 }
             }
-        }
+        }*/
     }
 }
 

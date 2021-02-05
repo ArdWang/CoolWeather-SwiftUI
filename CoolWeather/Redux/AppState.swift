@@ -66,7 +66,7 @@ extension AppState{
         var weather =  WeatherModel()
         
         // 获取空气指数
-        var air = LifeModel()
+        //var air =  LifeModel()
         
         // 默认为 0
         var currentLeavel:Int = 0

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LifeModel: Codable {
     
-    var heWeather6: [HeWeatherAir6] = []
+    let heWeather6: [HeWeatherAir6]
 
     enum CodingKeys: String, CodingKey {
         case heWeather6 = "HeWeather6"
@@ -65,7 +65,7 @@ enum Main: String, Codable {
 }
 
 enum PubTime: String, Codable {
-    case the202102051400 = "2021-02-05 14:00"
+    case the202102051500 = "2021-02-05 15:00"
 }
 
 enum Qlty: String, Codable {
@@ -88,4 +88,3 @@ struct AirBasic: Codable {
 struct AirUpdate: Codable {
     let loc, utc: String
 }
-
