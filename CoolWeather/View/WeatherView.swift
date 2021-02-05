@@ -49,11 +49,29 @@ struct WeatherView: View {
                     Text("生活建议").font(.title2).bold()
                     Divider()
                     LifeStyleView()
+                    
+                    // 生活指数
+                    Text("生活指数").font(.title2).bold()
+                    Divider()
+                    
+                    VStack(spacing:10){
+                        HStack(spacing:10){
+                            AirView(index: 0)
+                            AirView(index: 1)
+                            AirView(index: 2)
+                        }
+                    }.padding(10)
+                    .background(Color(.systemBackground))
+                    .onTapGesture(count: 1){
+                        UIApplication.shared
+                            .sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
                 }
                 .padding(10)
                 .navigationBarTitle("天气")
                 .onAppear{
                     Store.shared.getWeather(code: self.binding.defaultCode.wrappedValue)
+                    Store.shared.getAir(code: self.binding.defaultCode.wrappedValue)
                 }
             }
         }
@@ -144,6 +162,7 @@ struct SelectCityViewCell: View {
                 // 获取天气网络请求数据
                 let c = self.binding.countries[indexPath].wrappedValue
                 Store.shared.getWeather(code: c.weatherId)
+                Store.shared.getAir(code: c.weatherId)
                 self.binding.cityName.wrappedValue = c.name
                 
             default: print("End")
@@ -285,6 +304,149 @@ struct LifeStyleViewCell: View {
     }
 }
 
+/**
+    空气质量指数
+ */
+struct AirView: View {
+    
+    @EnvironmentObject var store: Store
+    var binding: Binding<AppState.Weather>{
+        $store.appState.weather
+    }
+    
+    var index: Int
+    
+    var body: some View{
+        
+            Group{
+                if self.binding.air.heWeather6.wrappedValue.count > 0 {
+                switch index{
+                case 0:
+                    AirViewCell(bgColor: Color("spo2Color"), air: self.binding.air.heWeather6.wrappedValue[0])
+                case 1:
+                    AirViewCell(bgColor: Color("prColor"), air: self.binding.air.heWeather6.wrappedValue[0])
+                default:
+                    AirViewCell(bgColor: Color("piColor"), air: self.binding.air.heWeather6.wrappedValue[0])
+                }
+            }
+        }
+    }
+}
+
+struct AirViewCell: View {
+    
+    var bgColor: Color
+    
+    var air: HeWeatherAir6
+    
+    var body: some View{
+        GeometryReader{
+            geo in
+            ZStack{
+                VStack{
+                    Text(air.basic.adminArea).font(.system(size: 17))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    Spacer()
+                    Text(air.basic.cnty).font(.system(size: 17, weight:.thin)).frame(maxWidth:.infinity, alignment: .trailing)
+                }
+                
+                VStack{
+                    Text("aqi").font(.system(size: 15))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    
+                    Text(air.airNowCity.aqi).font(.system(size: min(geo.size.width, geo.size.height) / 2, weight: .thin))
+                }
+            }
+        }
+        .padding(10)
+        .foregroundColor(Color(.white))
+        .background(bgColor)
+        .cornerRadius(12)
+        .frame(width: UIScreen.main.bounds.size.width / 3 - 20, height: 200)
+    }
+    
+}
+
+/*struct AirView1Cell: View {
+    
+    var bgColor: Color
+    
+    var air: HeWeatherAir6
+    
+    var body: some View{
+        GeometryReader{
+            geo in
+            ZStack{
+                VStack{
+                    Text(air.airNowCity.pubTime).font(.system(size: 17))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    Spacer()
+                    
+                    VStack{
+                        Text("空气质量")
+                        
+                        Text(air.airNowCity.qlty).font(.system(size: 17, weight:.thin)).frame(maxWidth:.infinity, alignment: .trailing)
+                    }
+                }
+                
+                VStack{
+                    Text("PM25").font(.system(size: 15))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    
+                    Text(air.airNowCity.pm25).font(.system(size: min(geo.size.width, geo.size.height) / 2, weight: .thin))
+                }
+            }
+        }
+        .padding(10)
+        .foregroundColor(Color(.white))
+        .background(bgColor)
+        .cornerRadius(12)
+        .frame(width: UIScreen.main.bounds.size.width / 3 - 20, height: 200)
+    }
+    
+}
+
+struct AirView2Cell: View {
+    
+    var bgColor: Color
+    
+    var air: HeWeatherAir6
+    
+    var body: some View{
+        GeometryReader{
+            geo in
+            ZStack{
+                VStack{
+                    HStack{
+                        Text("一氧化碳").font(.system(size: 17))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                        Text(air.airNowCity.co).font(.system(size: 17))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    }
+                    Spacer()
+                    
+                    VStack{
+                        Text("含氧量")
+                        
+                        Text(air.airNowCity.o3).font(.system(size: 17, weight:.thin)).frame(maxWidth:.infinity, alignment: .trailing)
+                    }
+                }
+                
+                VStack{
+                    Text("二氧化硫").font(.system(size: 15))
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    
+                    Text(air.airNowCity.so2).font(.system(size: min(geo.size.width, geo.size.height) / 2, weight: .thin))
+                }
+            }
+        }
+        .padding(10)
+        .foregroundColor(Color(.white))
+        .background(bgColor)
+        .cornerRadius(12)
+        .frame(width: UIScreen.main.bounds.size.width / 3 - 20, height: 200)
+    }
+}*/
 
 
 

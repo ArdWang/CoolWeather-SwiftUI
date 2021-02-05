@@ -260,7 +260,7 @@ extension Store{
                 //self.appState.weather.currentLeavel = 2
                 self.appState.weather.weather = weather
                
-                print("items count is \(self.appState.weather.countries.count)")
+                //print("items count is \(self.appState.weather.countries.count)")
                  
             }
             
@@ -269,5 +269,38 @@ extension Store{
             print("error is \(error)")
         })
     }
+    
+    
+    /**
+        获取空气质量指数
+     */
 
+    func getAir(code: String){
+        
+        let weatherKey = "c0d50dd43adb4a62aff5f3f728941082";
+
+        let weather_url = "https://free-api.heweather.com/s6/air?location="+code+"&key="+weatherKey
+        
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json"
+        ]
+        
+        ApiUtils.shared.netWork(url: weather_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
+            result in
+
+            
+            guard let air = try? JSONDecoder().decode(LifeModel.self, from: result) else{
+                return
+            }
+            
+            DispatchQueue.main.async {
+                //self.appState.weather.currentLeavel = 2
+                self.appState.weather.air = air
+                //print("items count is \(self.appState.weather.air.count)")
+            }
+        }, error: { error in
+            print("error is \(error)")
+        })
+    }
+    
 }
