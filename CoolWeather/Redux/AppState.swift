@@ -7,6 +7,7 @@
 
 import Foundation
 import AVKit
+import SwiftUI
 
 struct AppState {
     
@@ -43,15 +44,40 @@ extension AppState{
         var count = 10
     }
     
+    enum CurrentLeavel: Int {
+        case provicneLeavel = 0
+        case cityLeavel = 1
+        case countryLeavel = 2
+    }
+    
+    
     struct Weather {
         
         // 获取天气地址
         var state = StateModel()
         
-        var provice = [Province]()
+        var provices = [Province]()
+        
+        var cities = [City]()
+        
+        var countries = [Country]()
         
         // 获取天气信息
-        var weather = WeatherModel()
+        var weather =  WeatherModel()
+        
+        // 默认为 0
+        var currentLeavel:Int = 0
+        
+        // 获取名称
+        var dataList: [String] = []
+        
+        var colors:[Color] = [Color("piColor"),Color("piColor"),Color("piColor"),Color("piColor"),Color("piColor"),Color("piColor"),Color("piColor")]
+        
+        var cityName:String = "北京"
+        
+        var defaultCode = "CN101010100"
+        
+        
     }
     
     

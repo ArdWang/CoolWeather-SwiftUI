@@ -121,7 +121,7 @@ extension Store{
     
     /**获取天气的请求信息*/
     //==========================================天气处理模块========================
-    func getState(){
+    func getProvince(){
         let guolin_url = "http://guolin.tech/api/china"
         
         let headers: HTTPHeaders = [
@@ -131,23 +131,143 @@ extension Store{
         ApiUtils.shared.netWork(url: guolin_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
             result in
             
-            guard let state = try? JSONDecoder().decode([Province].self, from: result) else{
+            guard let province = try? JSONDecoder().decode([Province].self, from: result) else{
                 return
             }
    
             DispatchQueue.main.async {
-                self.appState.weather.provice = state
-                // self.appState.news.items = news.data
-                print("items count is \(self.appState.weather.provice.count)")
-                // self.combineImage(news: self.appState.news.items.)
+                //self.appState.weather.currentLeavel = 0
+                self.appState.weather.provices = province
+                
+                print("items count is \(self.appState.weather.provices.count)")
                 
             }
         }, error: { error in
             print("error is \(error)")
         })
+    }
+    
+    func getCity(pid: String){
+        let guolin_url = "http://guolin.tech/api/china/" + pid
         
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json"
+        ]
+        
+        ApiUtils.shared.netWork(url: guolin_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
+            result in
+            
+            guard let city = try? JSONDecoder().decode([City].self, from: result) else{
+                return
+            }
+   
+            DispatchQueue.main.async {
+                //self.appState.weather.currentLeavel = 1
+                self.appState.weather.cities = city
+               
+                print("items count is \(self.appState.weather.cities.count)")
+                
+            }
+        }, error: { error in
+            print("error is \(error)")
+        })
+    }
+    
+    func getCountry(pid: String, cid: String){
+        let guolin_url = "http://guolin.tech/api/china/" + pid+"/" + cid
+        
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json"
+        ]
+        
+        ApiUtils.shared.netWork(url: guolin_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
+            result in
+            
+            guard let coutry = try? JSONDecoder().decode([Country].self, from: result) else{
+                return
+            }
+   
+            DispatchQueue.main.async {
+                //self.appState.weather.currentLeavel = 2
+                self.appState.weather.countries = coutry
+               
+                print("items count is \(self.appState.weather.countries.count)")
+                 
+            }
+        }, error: { error in
+            print("error is \(error)")
+        })
+    }
+    
+    /**
+        获取当前的Level数据
+     */
+    func getDataList() -> [String]{
+        
+        var dataList:[String] = []
+        
+        switch self.appState.weather.currentLeavel {
+        case 0:
+            // 移除所有数据
+            //self.appState.weather.dataList.removeAll()
+            for m in self.appState.weather.provices {
+                dataList.append(m.name)
+            }
+        case 1:
+            // 移除所有数据
+            //self.appState.weather.dataList.removeAll()
+            for m in self.appState.weather.cities {
+                dataList.append(m.name)
+            }
+        case 2:
+            // 移除所有数据
+            //self.appState.weather.dataList.removeAll()
+            for m in self.appState.weather.countries {
+                dataList.append(m.name)
+            }
+        default:
+            print("End")
+        }
+        
+        return dataList
         
     }
     
     
+    /**
+        获取天气数据
+     */
+    
+    func getWeather(code: String){
+        
+        let weatherKey = "c0d50dd43adb4a62aff5f3f728941082";
+
+        let weather_url = "https://free-api.heweather.com/s6/weather?location="+code+"&key="+weatherKey
+        
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/json"
+        ]
+        
+        ApiUtils.shared.netWork(url: weather_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
+            result in
+
+            
+            guard let weather = try? JSONDecoder().decode(WeatherModel.self, from: result) else{
+                return
+            }
+            
+            DispatchQueue.main.async {
+                //self.appState.weather.currentLeavel = 2
+                self.appState.weather.weather = weather
+               
+                print("items count is \(self.appState.weather.countries.count)")
+                 
+            }
+            
+            
+        }, error: { error in
+            print("error is \(error)")
+        })
+    }
+
 }

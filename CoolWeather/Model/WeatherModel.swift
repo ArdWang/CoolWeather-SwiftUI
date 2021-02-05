@@ -25,97 +25,84 @@ struct WeatherModel: Codable {
      //和风天气的Key
      const String APP_WEATHER_KEY = "c0d50dd43adb4a62aff5f3f728941082";
      */
-    var heweather6:[HeWeather6] = []
+    var heWeather6: [HeWeather6] = []
+
+    enum CodingKeys: String, CodingKey {
+        case heWeather6 = "HeWeather6"
+    }
 }
 
-// 获取天气的 model
 struct HeWeather6: Codable {
-    var basic: Basic
-    var update:Update
-    var status = ""
-    var now: Now
-    var daily_forecast:[DailyForecast] = []
-    var hourly:[Houry] = []
-    var lifestyle:[LifeStyle] = []
+    let basic: Basic
+    let update: Update
+    let status: String
+    let now: Hourly
+    let dailyForecast: [DailyForecast]
+    let hourly: [Hourly]
+    let lifestyle: [Lifestyle]
+
+    enum CodingKeys: String, CodingKey {
+        case basic, update, status, now
+        case dailyForecast = "daily_forecast"
+        case hourly, lifestyle
+    }
 }
 
 struct Basic: Codable {
-    var cid = ""
-    var location = ""
-    var parent_city = ""
-    var admin_area = ""
-    var cnty = ""
-    var lat = ""
-    var lon = ""
-    var tz = ""
+    let cid, location, parentCity, adminArea: String
+    let cnty, lat, lon, tz: String
+
+    enum CodingKeys: String, CodingKey {
+        case cid, location
+        case parentCity = "parent_city"
+        case adminArea = "admin_area"
+        case cnty, lat, lon, tz
+    }
+}
+
+struct Hourly: Codable {
+    let cloud, condCode, condTxt: String
+    let dew: String?
+    let hum: String
+    let pop: String?
+    let pres: String
+    let time: String?
+    let tmp, windDeg, windDir, windSc: String
+    let windSpd: String
+    let fl, pcpn, vis: String?
+
+    enum CodingKeys: String, CodingKey {
+        case cloud
+        case condCode = "cond_code"
+        case condTxt = "cond_txt"
+        case dew, hum, pop, pres, time, tmp
+        case windDeg = "wind_deg"
+        case windDir = "wind_dir"
+        case windSc = "wind_sc"
+        case windSpd = "wind_spd"
+        case fl, pcpn, vis
+    }
+}
+
+struct Lifestyle: Codable {
+    let type, brf, txt: String
 }
 
 struct Update: Codable {
-    var loc = ""
-    var utc = ""
-}
-
-struct Now: Codable {
-    var cloud = ""
-    var cond_code = ""
-    var cond_txt = ""
-    var fl = ""
-    var hum = ""
-    var pcpn = ""
-    var pres = ""
-    var vis = ""
-    var wind_deg = ""
-    var wind_dir = ""
-    var wind_sc = ""
-    var wind_spd = ""
+    let loc, utc: String
 }
 
 struct DailyForecast: Codable {
-    var cond_code_d = ""
-    var cond_code_n = ""
-    var cond_txt_d = ""
-    var cond_txt_n = ""
-    var date = ""
-    var hum = ""
-    var hr = ""
-    var mr = ""
-    var ms = ""
-    var pcpn = ""
-    var pop = ""
-    var pres = ""
-    var sr = ""
-    var ss = ""
-    var tmp_max = ""
-    var tmp_min = ""
-    var uv_index = ""
-    var vis = ""
-    var wind_deg = ""
-    var wind_dir = ""
-    var wind_sc = ""
-    var wind_spd = ""
+    let cond_code_d: String?
+    let cond_txt_d: String?
+    let date: String?
+    //"tmp_max": "12",
+    //"tmp_min": "-2",
+    let tmp_max: String?
+    let tmp_min: String?
+    let hum: String?
 }
 
-struct Houry:Codable {
-    var cloud = ""
-    var cond_code = ""
-    var cond_txt = ""
-    var dew = ""
-    var hum = ""
-    var pop = ""
-    var pres = ""
-    var time = ""
-    var tmp = ""
-    var wind_deg = ""
-    var wind_dir = ""
-    var wind_sc = ""
-    var wind_spd = ""
-}
-
-struct LifeStyle: Codable {
-    var type = ""
-    var brf = ""
-    var txt = ""
-}
 
 
 
