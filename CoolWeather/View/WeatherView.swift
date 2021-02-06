@@ -56,9 +56,9 @@ struct WeatherView: View {
                     
                     VStack(spacing:10){
                         HStack(spacing:10){
-                            //AirView(index: 0)
-                            //AirView(index: 1)
-                            //AirView(index: 2)
+                            AirView(index: 0)
+                            AirView(index: 1)
+                            AirView(index: 2)
                         }
                     }.padding(10)
                     .background(Color(.systemBackground))
@@ -317,19 +317,21 @@ struct AirView: View {
     var index: Int
     
     var body: some View{
-        Text("dasdas")
-            /*Group{
-                if self.binding.air.heWeather6.wrappedValue.count > 0 {
+        Group{
+            // let data = self.binding.air.heWeather6[0].wrappedValue,
+            if self.binding.air.heWeather6.wrappedValue.count > 0{
+                if let data = self.binding.air.heWeather6[0].wrappedValue{
                 switch index{
                 case 0:
-                    AirViewCell(bgColor: Color("spo2Color"), air: self.binding.air.heWeather6.wrappedValue[0])
+                    AirViewCell(bgColor: Color("spo2Color"), air: data)
                 case 1:
-                    AirViewCell(bgColor: Color("prColor"), air: self.binding.air.heWeather6.wrappedValue[0])
+                    AirView1Cell(bgColor: Color("prColor"), air: data)
                 default:
-                    AirViewCell(bgColor: Color("piColor"), air: self.binding.air.heWeather6.wrappedValue[0])
+                    AirView2Cell(bgColor: Color("piColor"), air: data)
+                }
                 }
             }
-        }*/
+        }
     }
 }
 
@@ -367,7 +369,7 @@ struct AirViewCell: View {
     
 }
 
-/*struct AirView1Cell: View {
+struct AirView1Cell: View {
     
     var bgColor: Color
     
@@ -377,8 +379,9 @@ struct AirViewCell: View {
         GeometryReader{
             geo in
             ZStack{
+                // air.airNowCity.pubTime
                 VStack{
-                    Text(air.airNowCity.pubTime).font(.system(size: 17))
+                    Text(air.airNowCity.pubTime)
                         .frame(maxWidth:.infinity, alignment: .leading)
                     Spacer()
                     
@@ -446,7 +449,7 @@ struct AirView2Cell: View {
         .cornerRadius(12)
         .frame(width: UIScreen.main.bounds.size.width / 3 - 20, height: 200)
     }
-}*/
+}
 
 
 

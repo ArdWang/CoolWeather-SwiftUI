@@ -7,15 +7,16 @@
 
 import SwiftUI
 
+// MARK: - LifeModel
 struct LifeModel: Codable {
-    
-    let heWeather6: [HeWeatherAir6]
+    var heWeather6: [HeWeatherAir6] = []
 
     enum CodingKeys: String, CodingKey {
         case heWeather6 = "HeWeather6"
     }
 }
 
+// MARK: - HeWeather6
 struct HeWeatherAir6: Codable {
     let basic: AirBasic
     let update: AirUpdate
@@ -30,10 +31,14 @@ struct HeWeatherAir6: Codable {
     }
 }
 
+// MARK: - AirNowCity
 struct AirNowCity: Codable {
-    let aqi, qlty, main, pm25: String
-    let pm10, no2, so2, co: String
-    let o3, pubTime: String
+    let aqi: String
+    let qlty: String
+    let main: String
+    let pm25, pm10, no2, so2: String
+    let co, o3: String
+    let pubTime: String
 
     enum CodingKeys: String, CodingKey {
         case aqi, qlty, main, pm25, pm10, no2, so2, co, o3
@@ -41,13 +46,27 @@ struct AirNowCity: Codable {
     }
 }
 
+//enum Main: String, Codable {
+//    case empty = "-"
+//    case pm10 = "PM10"
+//}
+//
+//enum PubTime: String, Codable {
+//    case the202102060900 = "2021-02-06 09:00"
+//}
+//
+//enum Qlty: String, Codable {
+//    case 良 = "良"
+//}
+
+// MARK: - AirNowStation
 struct AirNowStation: Codable {
     let airSta, aqi, asid, co: String
     let lat, lon: String
-    let main: Main
+    let main: String
     let no2, o3, pm10, pm25: String
-    let pubTime: PubTime
-    let qlty: Qlty
+    let pubTime: String
+    let qlty: String
     let so2: String
 
     enum CodingKeys: String, CodingKey {
@@ -58,21 +77,7 @@ struct AirNowStation: Codable {
     }
 }
 
-enum Main: String, Codable {
-    case empty = "-"
-    case pm10 = "PM10"
-    case pm25 = "PM2.5"
-}
-
-enum PubTime: String, Codable {
-    case the202102051500 = "2021-02-05 15:00"
-}
-
-enum Qlty: String, Codable {
-    case 优 = "优"
-    case 良 = "良"
-}
-
+// MARK: - Basic
 struct AirBasic: Codable {
     let cid, location, parentCity, adminArea: String
     let cnty, lat, lon, tz: String
@@ -85,6 +90,7 @@ struct AirBasic: Codable {
     }
 }
 
+// MARK: - Update
 struct AirUpdate: Codable {
     let loc, utc: String
 }

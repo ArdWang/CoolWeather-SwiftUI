@@ -290,9 +290,9 @@ extension Store{
         ApiUtils.shared.netWork(url: weather_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
             result in
 
-            let json = String(data: result, encoding: String.Encoding.utf8)
+            //let json = String(data: result, encoding: String.Encoding.utf8)
             
-            print("json is \(String(describing: json))")
+            //print("json is \(String(describing: json))")
             
             
             guard let air = try? JSONDecoder().decode(LifeModel.self, from: result) else{
@@ -300,6 +300,8 @@ extension Store{
             }
             
             DispatchQueue.main.async {
+                print("air is \(air)")
+                self.appState.weather.air = air
                 //self.appState.weather.currentLeavel = 2
                 //self.appState.weather.air = air
                 //print("items count is \(self.appState.weather.air.count)")
