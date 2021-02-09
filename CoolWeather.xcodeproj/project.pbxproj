@@ -29,6 +29,7 @@
 		BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */; };
 		BCE998A025B1329D00430C02 /* CoolWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */; };
 		BCE998AA25B13A3900430C02 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE998A925B13A3900430C02 /* RefreshableScrollView.swift */; };
+		BE484E6125D211B100C43142 /* CommonDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE484E6025D211B100C43142 /* CommonDefaults.swift */; };
 		BE993C8425CC09EF00058C7C /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE993C8325CC09EF00058C7C /* WeatherView.swift */; };
 		BE993C8825CC0AAE00058C7C /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE993C8725CC0AAE00058C7C /* WeatherModel.swift */; };
 		BE993C8B25CC17CF00058C7C /* StateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE993C8A25CC17CF00058C7C /* StateModel.swift */; };
@@ -61,6 +62,7 @@
 		BCE9989A25B1315000430C02 /* CoolWeather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoolWeather.entitlements; sourceTree = "<group>"; };
 		BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolWeatherApp.swift; sourceTree = "<group>"; };
 		BCE998A925B13A3900430C02 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
+		BE484E6025D211B100C43142 /* CommonDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefaults.swift; sourceTree = "<group>"; };
 		BE993C8325CC09EF00058C7C /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		BE993C8725CC0AAE00058C7C /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		BE993C8A25CC17CF00058C7C /* StateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateModel.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				BCCEA7E525B00FB700EFDC5D /* ApiUtils.swift */,
 				BC842B2025B0234F00E3F2D1 /* ComExtension.swift */,
+				BE484E6025D211B100C43142 /* CommonDefaults.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE484E6125D211B100C43142 /* CommonDefaults.swift in Sources */,
 				BCCEA7E625B00FB700EFDC5D /* ApiUtils.swift in Sources */,
 				AB92A19F25C8157F009AA080 /* AppState.swift in Sources */,
 				BC852FA125CB787C0092D3A7 /* SelectImageView.swift in Sources */,

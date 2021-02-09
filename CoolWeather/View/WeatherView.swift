@@ -70,6 +70,16 @@ struct WeatherView: View {
                 .padding(10)
                 .navigationBarTitle("天气")
                 .onAppear{
+                    // 读取当前的code
+                    if Store.shared.getValue("currentCode") != nil && Store.shared.getValue("currentCode") != ""{
+                        self.binding.defaultCode.wrappedValue = Store.shared.getValue("currentCode")!
+                    }
+                    
+                    if Store.shared.getValue("currentCity") != nil && Store.shared.getValue("currentCity") != ""{
+                        self.binding.cityName.wrappedValue = Store.shared.getValue("currentCity")!
+                    }
+                    
+
                     Store.shared.getWeather(code: self.binding.defaultCode.wrappedValue)
                     Store.shared.getAir(code: self.binding.defaultCode.wrappedValue)
                 }
@@ -164,6 +174,10 @@ struct SelectCityViewCell: View {
                 Store.shared.getWeather(code: c.weatherId)
                 Store.shared.getAir(code: c.weatherId)
                 self.binding.cityName.wrappedValue = c.name
+                
+                // 存储城市和默认名称
+                Store.shared.saveValue(c.weatherId, forKey: "currentCode")
+                Store.shared.saveValue(c.name, forKey: "currentCity")
                 
             default: print("End")
             }

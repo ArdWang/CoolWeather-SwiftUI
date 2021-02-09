@@ -230,7 +230,6 @@ extension Store{
         }
         
         return dataList
-        
     }
     
     
@@ -309,6 +308,17 @@ extension Store{
         }, error: { error in
             print("error is \(error)")
         })
+    }
+    
+    
+    func saveValue(_ value: String?, forKey key:String?){
+        CommonDefaults.shared.saveValue(value, forKey: key)
+    }
+    
+    func getValue(_ key: String?) -> String?{
+        var v: String? = ""
+        v = CommonDefaults.shared.getValue(key)
+        return v
     }
     
 }
