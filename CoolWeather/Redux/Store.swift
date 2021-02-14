@@ -258,9 +258,7 @@ extension Store{
             DispatchQueue.main.async {
                 //self.appState.weather.currentLeavel = 2
                 self.appState.weather.weather = weather
-               
-                
-                
+
                 //print("items count is \(self.appState.weather.countries.count)")
                  
             }
@@ -310,11 +308,16 @@ extension Store{
         })
     }
     
-    
+    /**
+     存储数值
+     */
     func saveValue(_ value: String?, forKey key:String?){
         CommonDefaults.shared.saveValue(value, forKey: key)
     }
     
+    /**
+     获取数值
+     */
     func getValue(_ key: String?) -> String?{
         var v: String? = ""
         v = CommonDefaults.shared.getValue(key)
