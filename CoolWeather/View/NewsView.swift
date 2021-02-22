@@ -193,6 +193,7 @@ struct NewsImageCellRow: View {
     }
 }
 
+
 /**
     显示当前的图片
  */

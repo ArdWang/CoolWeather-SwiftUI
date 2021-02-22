@@ -23,6 +23,7 @@
 		BC842B2925B02E7F00E3F2D1 /* GankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC842B2825B02E7F00E3F2D1 /* GankModel.swift */; };
 		BC852FA125CB787C0092D3A7 /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC852FA025CB787C0092D3A7 /* SelectImageView.swift */; };
 		BC852FAC25CBE79E0092D3A7 /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC852FAB25CBE79E0092D3A7 /* NewsDetailView.swift */; };
+		BC8BC36F25E38E260059FE27 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8BC36E25E38E260059FE27 /* Launch Screen.storyboard */; };
 		BCCEA7D025B00CDB00EFDC5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */; };
 		BCCEA7D225B00CE100EFDC5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */; };
 		BCCEA7D525B00CE100EFDC5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCEA7D425B00CE100EFDC5D /* Preview Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		BC842B2825B02E7F00E3F2D1 /* GankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankModel.swift; sourceTree = "<group>"; };
 		BC852FA025CB787C0092D3A7 /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		BC852FAB25CBE79E0092D3A7 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
+		BC8BC36E25E38E260059FE27 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BCCEA7CA25B00CDB00EFDC5D /* CoolWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCEA7CF25B00CDB00EFDC5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCCEA7D125B00CE100EFDC5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				BCCEA7D325B00CE100EFDC5D /* Preview Content */,
 				BCE9989F25B1329D00430C02 /* CoolWeatherApp.swift */,
 				BC2487AE25C7AF930098EE45 /* Content.swift */,
+				BC8BC36E25E38E260059FE27 /* Launch Screen.storyboard */,
 			);
 			path = CoolWeather;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8BC36F25E38E260059FE27 /* Launch Screen.storyboard in Resources */,
 				BCCEA7D525B00CE100EFDC5D /* Preview Assets.xcassets in Resources */,
 				BCCEA7D225B00CE100EFDC5D /* Assets.xcassets in Resources */,
 			);
