@@ -9,9 +9,9 @@ import UIKit
 
 class CommonDefaults {
     
-    private let queue = DispatchQueue(label: "SaveDataQueue")
+    //private let queue = DispatchQueue(label: "SaveDataQueue")
     
-    let userDefaults = UserDefaults()
+    //let userDefaults = UserDefaults()
     
     static let shared = CommonDefaults()
     
@@ -22,20 +22,16 @@ class CommonDefaults {
 extension CommonDefaults{
     
     func saveValue(_ value: String?, forKey key:String?){
-        self.queue.async {
-            if value != nil && key != nil {
-                self.userDefaults.setValue(value, forKey: key ?? "")
-                self.userDefaults.synchronize()
-            }
-        }
+        UserDefaults.standard.setValue(value, forKey: key ?? "")
     }
     
     func getValue(_ key: String?) -> String?{
-        var value = ""
-        if key != nil && !(key?.isEqual("") ?? false) {
-            value = self.userDefaults.string(forKey: key ?? "") ?? ""
-            //return value
-        }
-        return value
+        UserDefaults.standard.string(forKey: key ?? "")
+    }
+}
+
+extension String{
+    var getValue: String?{
+        UserDefaults.standard.string(forKey: self)
     }
 }
