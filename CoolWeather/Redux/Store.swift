@@ -157,16 +157,20 @@ extension Store{
         ApiUtils.shared.netWork(url: guolin_url, method: .get, params: nil, headers: headers, ecoding: URLEncoding.default, success: {
             result in
             
-            guard let city = try? JSONDecoder().decode([City].self, from: result) else{
-                return
-            }
-   
-            DispatchQueue.main.async {
-                //self.appState.weather.currentLeavel = 1
-                self.appState.weather.cities = city
-               
-                print("items count is \(self.appState.weather.cities.count)")
-                
+            do{
+                guard let city = try? JSONDecoder().decode([City].self, from: result) else{
+                    return
+                }
+       
+                DispatchQueue.main.async {
+                    //self.appState.weather.currentLeavel = 1
+                    self.appState.weather.cities = city
+                   
+                    print("items count is \(self.appState.weather.cities.count)")
+                    
+                }
+            }catch let err as NSError{
+                print("出现错误了!" + err.description)
             }
         }, error: { error in
             print("error is \(error)")
